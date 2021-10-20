@@ -169,7 +169,6 @@ knitr::opts_chunk$set(echo = F,  #Do NOT repeat code in final document
           \item server: Back-end Struktur der Datenverarbeitung \& Inhaltsgenerierung (Was macht App: z.B. Grafikerstellung)
         \end{itemize}
       \item Speicherung der Komponenten in einer Datei (app.r) oder einzelnen Dateien (ui.r \& server.r) möglich
-      \item 
     \end{itemize}
 \end{frame}
 
@@ -234,7 +233,7 @@ navlistPanel(
 @
   \begin{figure}
   	\centering
-  	\includegraphics[width=0.5\textwidth]{figure/navlistPanel.png}
+  	\includegraphics[width=1\textwidth]{figure/navlistPanel.png}
   \end{figure}
 \end{frame}
 
@@ -429,11 +428,11 @@ fluidPage(
 
 \begin{frame}[fragile]{Outputs}
   \begin{itemize}
-    \item In server.r \& ui.r Änderungen vorgenommen werden
-    \item server: Hier wird der Output erstellt und gerendert
+    \item In server.r \& ui.r werden Änderungen vorgenommen 
+    \item server: Hier wird der Output erstellt und "gerendert"
       \begin{itemize}
         \item Output-Erstellung: z.B Produktion einer Grafik mittels ggplot()
-        \item Rendering: Transformation des R-Outputs in eine von Browsern lesbare Sprache (JS, HTML,CSS)
+        \item Rendering: Transformation des R-Outputs in eine von Browsern lesbare Sprache (JS, HTML, CSS, o.ä.)
       \end{itemize}
     \item ui: Hier wird ein Platzhalter für den Output benötigt (passend zum render***-Befehl im Server)
   \end{itemize}
@@ -455,7 +454,7 @@ fluidPage(
   
   
   
-\begin{frame}[fragile]{1 Schritt: Platzhalter setzen}  
+\begin{frame}[fragile]{1 Schritt: Platzhalter setzen in ui.r & server.r}  
 <<3: ui.r structure, echo=TRUE, eval=F, size="small">>=
 #ui.r:
 fluidPage(
@@ -465,7 +464,7 @@ fluidPage(
       sliderInput("obs", "Number of observations:", 
                   min = 1, max = 50, value = 5)
     #Histogram-Output  
-      plotOutput("histPlot"),
+      plotOutput("histPlot"), # <- NEW
 )
 @  
 
@@ -474,7 +473,7 @@ fluidPage(
 #server.r:
 shinyServer(function(input, output) {
   #Histogram-Creation
-    output$histPlot <- renderPlot({
+    output$histPlot <- renderPlot({ # <- NEW
     })
 })
 @  

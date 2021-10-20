@@ -1,0 +1,7 @@
+\babel@toc {nil}{}\relax 
+\beamer@sectionintoc {1}{Überblick}{3}{0}{1}
+\beamer@sectionintoc {2}{Struktur \& Layout}{5}{0}{2}
+\beamer@sectionintoc {3}{Inputs: Widgets}{17}{0}{3}
+\beamer@sectionintoc {4}{Outputs}{21}{0}{4}
+\beamer@sectionintoc {5}{Reactivity}{26}{0}{5}
+\beamer@sectionintoc {6}{Besprechung \& Ausblick}{33}{0}{6}

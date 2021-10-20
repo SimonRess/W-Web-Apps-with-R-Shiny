@@ -1,0 +1,25 @@
+\frametitle{2 Schritt: Server-Code (reaktiv) ausbauen}
+\begin{itemize}
+    \item Einsetzen des eigentliches R-Codes zur Erstellung des Histograms
+    \item Das Histogramm reagiert auf den Input mittels 'input\$obs'
+      \begin{itemize}
+        \item Hiermit wird der Wert des sliderInputs abgerufen
+        \item Der Datensatz wird auf die jeweilige Fallzahl beschränkt
+      \end{itemize}
+    \item render*()-Funktionen aktualisieren sich automatisch sobald sich der Wert eines enthaltenen Inputs ($\rightarrow input\$*$) ändert
+  \end{itemize}
+
+\begin{knitrout}\small
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#server.r:}
+\hlkwd{shinyServer}\hlstd{(}\hlkwa{function}\hlstd{(}\hlkwc{input}\hlstd{,} \hlkwc{output}\hlstd{) \{}
+  \hlcom{#Histogram-Creation}
+    \hlstd{output}\hlopt{$}\hlstd{histPlot} \hlkwb{<-} \hlkwd{renderPlot}\hlstd{(\{}
+      \hlstd{data} \hlkwb{<-} \hlstd{cars}\hlopt{$}\hlstd{speed[}\hlnum{1}\hlopt{:}\hlstd{input}\hlopt{$}\hlstd{obs]}
+      \hlkwd{hist}\hlstd{(data)}
+    \hlstd{\})}
+\hlstd{\})}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
